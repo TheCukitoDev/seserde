@@ -26,6 +26,7 @@ pub struct User {
     pub contact: Contact,
 }
 
-async fn create_user(Json(payload): Json<User>) {
+async fn create_user(Json(payload): Json<User>) -> axum::http::StatusCode {
     println!("User: {}", payload.name);
+    axum::http::StatusCode::CREATED
 }
